@@ -1,0 +1,186 @@
+/* Styling untuk logo di header */
+.logo {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+}
+
+header:hover {
+    background: #444;
+}
+
+header .logo {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+header:hover .logo {
+    transform: scale(1.1);
+}
+
+h1 {
+    font-size: 2em;
+    margin-left: 20px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: #ff6347;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff6347;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+section {
+    padding: 40px 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+section h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background: #ff6347;
+    width: 50px;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+section h2:hover::after {
+    transform: scaleX(1);
+}
+
+.projects-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: flex-start; /* Adjust to avoid unnecessary space */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    scroll-behavior: smooth; /* Smooth scrolling if needed */
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 12px; /* Rounded corners by default */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex: 1;
+    min-width: 300px; /* Minimum lebar untuk kartu proyek */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+    transform: scale(1);
+    box-sizing: border-box; /* Memastikan padding dan border tidak mempengaruhi lebar/ketinggian */
+}
+
+.project-card::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 12px; /* Rounded corners for the overlay */
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 16px; /* More rounded corners on hover */
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.1);
+}
+
+.project-card h3 {
+    margin: 10px 0;
+}
+
+.project-card p {
+    color: #666;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Media Query untuk perangkat dengan lebar layar kecil */
+@media (max-width: 768px) {
+    .projects-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-card {
+        width: 100%;
+        max-width: 600px; /* Maksimum lebar kartu proyek pada perangkat kecil */
+    }
+}
